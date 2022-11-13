@@ -1,4 +1,4 @@
-package pe.ep3.mundialfifa.Jugador.domain.entity;
+package pe.ep3.mundialfifa.Pais.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,30 +7,28 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity(name = "Jugador")
+@Entity(name = "Pais")
 @Table(
-        name = "Jugador"
+        name = "Pais"
 )
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Jugador {
+public class Pais {
 
     @SequenceGenerator(
-            name = "jugador_sequence",
-            sequenceName = "jugador_sequence",
+            name = "pais_sequence",
+            sequenceName = "pais_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "jugador_sequence"
+            generator = "pais_sequence"
     )
     @Id
     Long id;
-    String jugador;
     String pais;
     String continente;
-    String edad;
     String grupo;
 }

@@ -21,7 +21,7 @@ public class JugadorController {
     }
 
     @PostMapping
-    @RequestMapping("/add")
+    @RequestMapping("/addUser")
     public ResponseEntity<BasicResponse> addUser(@RequestBody UserRequest request){
         BasicResponse response = jugadorService.addUser(request);
         return ResponseEntity.status(response.getCode()).body(response);

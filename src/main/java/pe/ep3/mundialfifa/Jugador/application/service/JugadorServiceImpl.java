@@ -48,6 +48,7 @@ public class JugadorServiceImpl implements JugadorService{
 
     public Jugador buildPersonFromRequest(UserRequest request) {
         return Jugador.builder()
+                .id(request.getId())
                 .jugador(request.getJugador())
                 .pais(request.getPais())
                 .edad(request.getEdad())

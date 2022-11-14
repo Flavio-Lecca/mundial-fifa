@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.ep3.mundialfifa.Jugador.domain.entity.Jugador;
 import pe.ep3.mundialfifa.Jugador.infrastructure.repository.JugadorRepository;
+import pe.ep3.mundialfifa.Jugador.infrastructure.request.UserRequest;
 import pe.ep3.mundialfifa.Jugador.infrastructure.response.BasicResponse;
 import pe.ep3.mundialfifa.Jugador.infrastructure.response.JugadorResponse;
 
@@ -30,5 +31,26 @@ public class JugadorServiceImpl implements JugadorService{
                     .jugadorList(jugadorList)
                     .basicResponse(BasicResponse.whenSuccess()).build();
         }
+    }
+
+    @Override
+    public BasicResponse addUser(UserRequest request) {
+        try{
+            jugadorRepository.save(this.buildPersonFromRequest(request));
+            return BasicResponse.whenSuccess();
+
+        }
+        catch (Exception e){
+            log.error(e.getMessage());
+            return BasicResponse.whenError(e.getMessage());
+        }
+    }
+
+    public Jugador buildPersonFromRequest(UserRequest request) {
+        return Jugador.builder()
+                .jugador(request.getJugador())
+                .pais(request.getPais())
+                .edad(request.getEdad())
+                .build();
     }
 }

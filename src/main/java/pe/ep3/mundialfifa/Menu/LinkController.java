@@ -17,7 +17,7 @@ public class LinkController {
         List<LinkResponse> linkResponses = List.of(LinkResponse.builder().link("https://app-mundial-fifa.herokuapp.com/api/v1/mundial/paises").build(),
                 LinkResponse.builder().link("https://app-mundial-fifa.herokuapp.com/api/v1/mundial/jugadores").build(),
                 LinkResponse.builder().link("https://app-mundial-fifa.herokuapp.com/api/v1/mundial/estadios").build(),
-                LinkResponse.builder().link("https://app-mundial-fifa.herokuapp.com/api/v1/mundial/add").build());
+                LinkResponse.builder().link("https://app-mundial-fifa.herokuapp.com/api/v1/mundial/jugadores/add").build());
         return linkResponses;
     }
 }
